@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "tslint.ignoreDefinitionFiles": false,
+  "tslint.exclude": "**/node_modules/**/*"
+}

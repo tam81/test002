@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true, // require .d.ts file for every library that we use
+    "moduleResolution": "node", // determine how module is resolved (values: node or classic)
+    "module": "commonjs", // Transpile ES module syntax to commonjs so it will be executed in nodejs
+    "target": "es6", // ECMAScript target version. Nodejs support es6 so we can target
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/__tests__/**/*"]
+}
