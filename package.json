@@ -8,15 +8,16 @@
     "watch": "tsc -w",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "npm run test -- --watchAll",
-    "dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"Watch,Serve\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch\" \"npm run serve\"",
-    "serve": "nodemon dist/index.js",
     "lint": "lint-staged"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "mathjs": "^6.0.2"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/mathjs": "^5.0.1",
     "@types/node": "^12.0.10",
     "concurrently": "^4.1.1",
     "husky": "^3.0.0",

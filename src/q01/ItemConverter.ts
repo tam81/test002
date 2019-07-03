@@ -1,19 +1,36 @@
 import { Item } from "./Item";
 export class ItemConverter {
+  private readonly ROW_SEPARATOR: string = ";";
+  private readonly ITEM_SEPARATOR: string = "\n";
+  private readonly VALUE_SEPARATOR: string = "=";
+
   fromString(value: string | null | undefined): Item[] {
+    const items: Item[] = [];
     if (value) {
-      return value.split("\n").map(row => {
-        const items = row.split(";");
+      const rows = value.split(this.ITEM_SEPARATOR);
+      for (const row of rows) {
+        if (this.isNotValidRowString(row)) {
+          throw new Error("invalid input");
+        }
         const item = new Item();
-        items.map(str => {
-          const pair = str.split("=");
-          if (pair.length == 2) {
-            item.setProperty(pair[0], pair[1]);
-          }
+        row.split(this.ROW_SEPARATOR).map(str => {
+          const pair = str.split(this.VALUE_SEPARATOR);
+          item.setProperty(pair[0], pair[1]);
         });
-        return item;
-      });
+        items.push(item);
+      }
     }
-    return [];
+    return items;
+  }
+
+  private isNotValidRowString(row: string): boolean {
+    return (
+      row.indexOf(this.ROW_SEPARATOR) == -1 &&
+      row.indexOf(this.VALUE_SEPARATOR) == -1
+    );
+  }
+
+  toStringValue(items: Item[]): string {
+    return items.map(item => item.toStringValue()).join("\n");
   }
 }

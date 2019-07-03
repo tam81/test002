@@ -6,10 +6,10 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true, // require .d.ts file for every library that we use
-    "moduleResolution": "node", // determine how module is resolved (values: node or classic)
-    "module": "commonjs", // Transpile ES module syntax to commonjs so it will be executed in nodejs
-    "target": "es6", // ECMAScript target version. Nodejs support es6 so we can target
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es6",
     "resolveJsonModule": true,
     "outDir": "dist",
     "sourceMap": true,
